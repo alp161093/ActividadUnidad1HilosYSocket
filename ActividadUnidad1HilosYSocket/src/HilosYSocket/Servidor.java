@@ -23,7 +23,7 @@ public class Servidor implements Runnable{
 			//creacion de socket
 			ServerSocket serverSocket = new ServerSocket(5001); 
 			System.out.println("Chat iniciado, esperando a cliente.....");
-			int i = 0;
+			int numeroClientes = 0;
 			
 			while(true) {
 				//ya esta a la escucha esperando a que se nos conecte un cliente
@@ -31,10 +31,10 @@ public class Servidor implements Runnable{
 				//cuado el cliete se ha conectado se salta a la siguiene linea
 				System.out.println("Cliente conectado desde " + clienteSocket2.getInetAddress());
 				
-				i++;
+				numeroClientes++;
 				
 				//ahora creamos un hilo para soltar a este cliente en ese hilo para volver a dejar en escuchar al servidor y poder atender a mas de un cliente a la vez
-				new Thread(new Servidor(clienteSocket2), "Cliente " + i).start();
+				new Thread(new Servidor(clienteSocket2), "Cliente " + numeroClientes).start();
 				//volvemos al inico del while y estamos esperando a un nuevo cliente
 			}
 		}
