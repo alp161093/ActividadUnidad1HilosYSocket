@@ -54,34 +54,34 @@ public class Servidor implements Runnable{
 			//generamos un buffer de lectura para poder leer lo que nos indica el cliente
 			BufferedReader in = new BufferedReader(new InputStreamReader(clienteSocket.getInputStream()));
 			
-			out.println("Menú del servidor:\n1.Pizzería \n2.Hamburguesería \n3.HotDog \n4.FoodTruck \n5.Vegetariana");
-			out.println("Dime algo");
+			out.println("Bienvenido al menú del calendario de eventos:\n1.Ver eventos del día \n2.Agregar nuevo evento \n3.Ver eventos del mes \n4.Editar detalles de un evento \n5.Eliminar evento");
+			out.println("Seleccione una de las opciones con 1,2,3,4 o 5, en caso de querer salir pulse 'q'");
 			
 			
 			//nos quedamos a la espera de leer lo que nos dice
 			while((inputLine = in.readLine()) != null) {
 				String response  = inputLine;
-				System.out.println("Llego esto: " + inputLine);
+				System.out.println("El cliente ha elegido la opción " + inputLine);
 				switch (response) {
 					case "1":
-						out.println("Ha entrado en el menú de la pizzería");
-						out.println("Elije otra opción o cierra lo conexion");
+						out.println("Estos son los eventos del día......");
+						out.println("Elije otra opción o cierre lo conexion con 'q'");
 						break;
 					case "2":
-						out.println("Ha entrado en el menú de la hamburguesería");
-						out.println("Elije otra opción o cierra lo conexion");
+						out.println("En este apartado se puede agregar un nuevo evento al calendario....");
+						out.println("Elije otra opción o cierre lo conexion con 'q'");
 						break;
 					case "3":
-						out.println("Ha entrado en el menú de la hotDog");
-						out.println("Elije otra opción o cierra lo conexion");
+						out.println("Estos son los eventos del mes....");
+						out.println("Elije otra opción o cierre lo conexion con 'q'");
 						break;
 					case "4":
-						out.println("Ha entrado en el menú de la Foodtruck");
-						out.println("Elije otra opción o cierra lo conexion");
+						out.println("¿De qué evento quieres editar sus detalles?...");
+						out.println("Elije otra opción o cierre lo conexion con 'q'");
 						break;
 					case "5":
-						out.println("Ha entrado en el menú de la Vegetariana");
-						out.println("Elije otra opción o cierra lo conexion");
+						out.println("¿Que evento quiere eliminar?....");
+						out.println("Elije otra opción o cierre lo conexion con 'q'");
 						break;
 					case "q":
 						//para cortar la conexion con el servidor nos salimos cuando llegue "q"
